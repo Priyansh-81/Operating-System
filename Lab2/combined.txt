@@ -1,0 +1,51 @@
+Q1
+# Lines with exactly two characters
+grep -x '..' filename.txt
+
+# Lines that start with an uppercase letter
+grep '^[A-Z]' filename.txt
+
+# Lines that end with a period
+grep '\.$' filename.txt
+
+# Lines that have one or more blank spaces
+grep ' ' filename.txt
+
+# Lines with digits, redirecting to another file
+grep '[0-9]' filename.txt > digit_lines.txt
+
+Q2
+RegistrationNo:Name:Department:Branch:Section:Sub1:Sub2:Sub3
+1234:XYZ:ICT:CCE:A:80:60:70
+2345:ABC:IT:CSE:B:60:70:75
+...
+
+i)
+grep -c ':ICT:' studentInformation.txt
+
+ii)
+sed 's/:IT:/:Information Technology:/g' studentInformation.txt > ITStudents.txt
+
+iii)
+awk -F: '$1=="1234" {print ($6+$7+$8)/3}' studentInformation.txt
+
+iv)
+awk 'NR==1{print toupper($0); next}1' studentInformation.txt
+
+Q3
+# List all files with “MIT”
+grep -l "MIT" *
+
+# Replace MIT with full name
+grep -l "MIT" * | xargs sed -i 's/MIT/Manipal Institute of Technology/g'
+
+Q4
+wc *[0-9]* 2>/dev/null
+
+Q5
+wc filename.txt & wc another.txt &
+
+# Kill all wc processes
+pkill wc
+
+

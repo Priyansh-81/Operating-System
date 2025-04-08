@@ -1,0 +1,4 @@
+sed 's/.\(.\)$/\1/' filename.txt
+
+
+grep -c '[0-9]' filename.txt
